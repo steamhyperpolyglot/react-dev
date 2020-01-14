@@ -56,7 +56,7 @@ export default class App extends Component {
 				{ action: "Get Shoes", done: false },
 				{ action: "Collect Tickets", done: true },
 				{ action: "Call Joe", done: false }
-				]
+				], showCompleted: true
 		});
 	};
 	
