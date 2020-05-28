@@ -28,7 +28,7 @@ export default class App extends Component {
 		if (!this.state.todoItems.find(item => item.action === task)) {
 			this.setState({
 				todoItems: [...this.state.todoItems, { action: task, done: false }]
-			},
+			}, 
 			() => localStorage.setItem("todos", JSON.stringify(this.state)));
 		}
 	};
@@ -39,9 +39,8 @@ export default class App extends Component {
 	} );
 	
 	todoTableRows = (doneValue) => this.state.todoItems
-		.filter(item => item.done === doneValue).map ( item =>
-		<TodoRow key={ item.action } item={ item } callback={ this.toggleTodo } />
-	);
+		.filter(item => item.done === doneValue)/map(item =>
+			<TodoRow key={item.action} item={item} callback={this.toggleTodo} />)
 	
 	/**
 	 * The componentDidMount method is always called early in the component's life.
@@ -59,12 +58,6 @@ export default class App extends Component {
 				], showCompleted: true
 		});
 	};
-	
-	/*changeStateData = () => {
-		this.setState ( {
-			userName: this.state.userName === "Sherman" ? "Dan" : "Sherman"
-		} )
-	};*/
 	
 	// Using a fat arrow function.
 	render = () =>
